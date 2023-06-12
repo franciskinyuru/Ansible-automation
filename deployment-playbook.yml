@@ -1,0 +1,25 @@
+---
+- name: Provision Vagrant VM
+  hosts: localhost
+  gather_facts: false
+  become: true
+  tasks:
+    - name: Install Vagrant
+      shell: |
+        curl -O https://releases.hashicorp.com/vagrant/2.2.18/vagrant_2.2.18_x86_64.dmg
+        hdiutil attach vagrant_2.2.18_x86_64.dmg
+        sudo installer -pkg /Volumes/Vagrant/Vagrant.pkg -target /
+        hdiutil detach /Volumes/Vagrant
+        rm vagrant_2.2.18_x86_64.dmg
+      args:
+        executable: /opt/homebrew/bin/bash
+
+    - name: Install VirtualBox
+      shell: |
+        curl -O https://download.virtualbox.org/virtualbox/6.1.26/VirtualBox-6.1.26-145957-OSX.dmg
+        hdiutil attach VirtualBox-6.1.26-145957-OSX.dmg
+        sudo installer -pkg /Volumes/VirtualBox/VirtualBox.pkg -target /
+        hdiutil detach /Volumes/VirtualBox
+        rm VirtualBox-6.1.26-145957-OSX.dmg
+      args:
+        executable: /opt/homebrew/bin/bash

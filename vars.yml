@@ -1,0 +1,4 @@
+# vars.yml
+client_image: "warui1225/yolo-frontend"
+backend_image: "warui1225/yolo-backend"
+app_folder: "/opt/yolo"
