@@ -2,6 +2,13 @@
 
 - name: Run yolo containers
   block:
+    - name: Clone the code from GitHub
+      git:
+        repo: https://github.com/franciskinyuru/yolo.git
+        dest: 
+        clone: yes
+        update: yes
+
     - name: Pull the client image
       community.docker.docker_image:
         name: "{{ client_image }}"
@@ -19,8 +26,8 @@
 
     - name: Copy docker-compose file from repo to folder
       ansible.builtin.template:
-        src: ./docker-compose.yaml
-        dest: "{{ app_folder }}/docker-compose.yaml"
+        src: ../yolo/docker-compose.yaml
+        dest: "{{ file_folder }}/docker-compose.yaml"
 
     - name: Start containers
       shell: "docker-compose up -d"
