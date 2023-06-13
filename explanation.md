@@ -23,7 +23,7 @@
 Provision an ubuntu virtual machine using ansible and  
 Clone and deploy the yolo application in docker desktop.
    ## Deploying the Yolo app
-   As have been done in the main branch
+   As has been done in the main branch
 
   ## Provision the ubuntu virtual machine.
 Create a new folder in the roles directory called terraform and then a tasks directory in the created directory.
@@ -40,7 +40,6 @@ finaly run below command to provision and deploy Yolo app
 
 `
 ansible-playbook playbook.yml --tags all
-
 `
 
 Confirm the VM has been deployed and the Yolo app are up and running successfully.
