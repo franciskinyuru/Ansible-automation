@@ -1,0 +1,10 @@
+- name: Run Terraform
+  block:
+    - name: Run Terraform apply
+      hosts: localhost
+      gather_facts: false
+      tasks:
+        - name: Execute Terraform Apply
+          command: "terraform apply -auto-approve"
+          args:
+            chdir: ../../../Stage_two/

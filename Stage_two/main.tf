@@ -3,19 +3,18 @@
 provider "vagrant" {}
 
 resource "vagrant_box" "ubuntu" {
-  name     = "geerlingguy/ubuntu2004"
-  provider = "virtualbox"
+  name     = var.boot_image
+  provider = var.provider_box
 }
 
 resource "vagrant_machine" "example" {
   name     = "ubuntu"
   box      = vagrant_box.ubuntu.name
-  provider = "virtualbox"
+  provider = var.provider_box
 
   provisioner "shell" {
     inline = [
       "apt-get update",
-      "apt-get install -y apache2",
     ]
   }
 
@@ -25,7 +24,7 @@ resource "vagrant_machine" "example" {
 }
 
 resource "vagrant_network" "forwarded_port" {
-  guest    = 80
-  host     = 8300
-  protocol = "tcp"
+  guest    = var.guest_port
+  host     = var.host_port
+  protocol = var.protocol
 }
