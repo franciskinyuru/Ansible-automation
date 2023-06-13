@@ -5,7 +5,7 @@
     - name: Clone the code from GitHub
       git:
         repo: https://github.com/franciskinyuru/yolo.git
-        dest: 
+        dest: "{{ dest_folder }}"
         clone: yes
         update: yes
 
@@ -26,8 +26,8 @@
 
     - name: Copy docker-compose file from repo to folder
       ansible.builtin.template:
-        src: ../yolo/docker-compose.yaml
-        dest: "{{ file_folder }}/docker-compose.yaml"
+        src: ../yolo/docker-compose.yml
+        dest: "{{ app_folder }}/docker-compose.yaml"
 
     - name: Start containers
       shell: "docker-compose up -d"
