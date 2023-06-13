@@ -1,0 +1,38 @@
+- name: Run Terraform
+  block:
+    - name: Run Terraform init 
+      hosts: localhost
+      gather_facts: false
+      tasks:
+        - name: Execute Terraform Init
+          command: "terraform init"
+          args:
+            chdir: {{ terraform_folder }}
+
+    - name: Run Terraform plan 
+      hosts: localhost
+      gather_facts: false
+      tasks:
+        - name: Execute Terraform plan
+          command: "terraform plan"
+          args:
+            chdir: {{ terraform_folder }}
+
+    - name: Run Terraform validate
+      hosts: localhost
+      gather_facts: false
+      tasks:
+        - name: Execute Terraform validate
+          command: "terraform validate"
+          args:
+            chdir: {{ terraform_folder }}
+
+    - name: Run Terraform apply
+      hosts: localhost
+      gather_facts: false
+      tasks:
+        - name: Execute Terraform apply
+          command: "terraform apply -auto-approve"
+          args:
+            chdir: {{ terraform_folder }}
+  tags: [provision]
