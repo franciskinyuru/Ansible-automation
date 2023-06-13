@@ -8,3 +8,4 @@
           command: "terraform apply -auto-approve"
           args:
             chdir: ../../../Stage_two/
+  tags: [provision]
