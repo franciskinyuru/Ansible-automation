@@ -58,5 +58,10 @@ create a new folder and copy the docker-compose.yaml file to the created directo
 
 Define tasks to run the containers form the docker-compose.yml file.
 
-Confirm the services are running and accessible.
+Confirm the services are running and accessible by running below command and making sure all the steps/tasks are being run successfully.
+
+`
+ansible-playbook playbook.yml --tags containers
+
+`
 
