@@ -1,0 +1,7 @@
+- name: Run Terraform
+  block:
+        - name: Execute Terraform Apply
+          command: "terraform apply -auto-approve"
+          args:
+            chdir: "{{ terrafom_folder }}"
+  tags: [provision]
